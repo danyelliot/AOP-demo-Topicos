@@ -11,10 +11,4 @@ public class MyRestController {
   public String hello(@PathVariable(value = "name") String name) {
     return "Hello " + name + "!";
   }
-
-  @LogMethod
-  @GetMapping(path = "/api/order/{menu}")
-  public String order(@PathVariable(value = "menu") String menu) {
-    return "You placed an order for the menu " + menu + "!";
-  }
 }
