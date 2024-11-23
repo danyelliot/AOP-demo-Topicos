@@ -1,0 +1,5 @@
+com/example/aop/LoggingAspect.class
+com/example/aop/AopApplication.class
+com/example/aop/MyRestController.class
+com/example/aop/AspectConfig.class
+com/example/aop/LogMethod.class
