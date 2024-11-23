@@ -1,6 +1,5 @@
 package com.example.aop;
 
-import com.example.aop.LogMethod;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
