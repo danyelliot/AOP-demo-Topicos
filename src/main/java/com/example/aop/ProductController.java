@@ -10,7 +10,7 @@ public class ProductController {
   @LogMethod
   @GetMapping(path = "/api/product/{productId}")
   public String getProduct(@PathVariable(value = "productId") String productId) {
-    return "Product ID: " + productId;
+    return "ID product: " + productId;
   }
 
   @LogMethod
