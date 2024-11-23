@@ -10,4 +10,9 @@ public class MyRestController {
   public String hello(@PathVariable(value = "name") String name) {
     return "Hello " + name + "!";
   }
+  @LogMethod
+  @GetMapping(path = "/farewell/{name}")
+  public String goodbye(@PathVariable(value = "name") String name) {
+    return "Goodbye " + name + "!";
+  }
 }
