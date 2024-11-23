@@ -60,10 +60,15 @@ public class ProductController {
   // Agregar un nuevo producto
   @LogMethod
   @PostMapping(path = "/api/product")
-  public String addProduct(
-          @RequestParam String productId,
-          @RequestParam String productName,
-          @RequestParam String productDescription) {
+  public String addProduct(@RequestBody Map<String, String> productData) {
+    String productId = productData.get("productId");
+    String productName = productData.get("productName");
+    String productDescription = productData.get("productDescription");
+
+    if (productId == null || productName == null || productDescription == null) {
+      return "Product ID, name, and description are required.";
+    }
+
     if (products.containsKey(productId)) {
       return "Product with ID " + productId + " already exists.";
     }
@@ -77,10 +82,14 @@ public class ProductController {
   // Actualizar un producto existente
   @LogMethod
   @PutMapping(path = "/api/product/{productId}")
-  public String updateProduct(
-          @PathVariable String productId,
-          @RequestParam String productName,
-          @RequestParam String productDescription) {
+  public String updateProduct(@PathVariable String productId, @RequestBody Map<String, String> productData) {
+    String productName = productData.get("productName");
+    String productDescription = productData.get("productDescription");
+
+    if (productName == null || productDescription == null) {
+      return "Product name and description are required.";
+    }
+
     if (!products.containsKey(productId)) {
       return "Product with ID " + productId + " not found.";
     }
